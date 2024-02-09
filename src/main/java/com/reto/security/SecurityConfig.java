@@ -30,7 +30,7 @@ public class SecurityConfig   {
                 .authorizeHttpRequests(
                         (authorizationManagerRequestMatcherRegistry)
                                 -> authorizationManagerRequestMatcherRegistry
-                                .requestMatchers("/api/v2/users/*", "/api/auth/*")
+                                .requestMatchers("/api/v2/users","/api/v2/users/save", "/api/auth/*")
                                 .permitAll().anyRequest().authenticated())
                                 .sessionManagement(httpSecuritySessionManagementConfigurer
                                     -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
