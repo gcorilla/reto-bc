@@ -1,5 +1,6 @@
 package com.reto.controller;
 
+import com.reto.model.PostModel;
 import com.reto.model.UserModel;
 import com.reto.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,12 @@ public class UserController {
     @GetMapping
     public List<UserModel> getAllUsers(){
         return userService.obtenerTodosLosUsuarios();
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> actualizarUser(@PathVariable Integer id, @RequestBody UserModel updateUser){
+        userService.actualizarUsuario(id, updateUser);
+        return ResponseEntity.ok("Usuario actualizado correctamente");
     }
 
 }
