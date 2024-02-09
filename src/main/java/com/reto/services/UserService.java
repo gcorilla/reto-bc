@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,7 +19,7 @@ public class UserService{
     private final IUserRepository userRepository;
 
     public UserModel crearUsuario (UserModel userModel){
-        userModel.setTime_up(LocalDate.now());
+        //userModel.setTime_up(LocalDateTime.now());
         return userRepository.save(userModel);
 
     }
@@ -30,7 +31,7 @@ public class UserService{
         usuarioExistente.setName(usuarioActualizado.getName());
         usuarioExistente.setLast_name(usuarioActualizado.getLast_name());
         usuarioExistente.setPassword(usuarioActualizado.getPassword());
-        usuarioExistente.setTime_modify(LocalDate.now());
+        //usuarioExistente.setTime_modify(LocalDateTime.now());
 
         return userRepository.save(usuarioExistente);
     }
